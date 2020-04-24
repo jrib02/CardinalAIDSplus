@@ -59,7 +59,7 @@ class AI():
                 break
 
             
-            elif lst1[x] == "padilla" or lst1[x] == "dionis" or lst1[x] == "pads":
+            elif lst1[x] == "padilla" or lst1[x] == "dionis":
                 for x in range (0,len(lst1)+1):
                     if x == len(lst1):
                         fallback()
@@ -83,7 +83,7 @@ class AI():
                 break
 
             
-            if lst1[x] == "manlises" or lst1[x] == "cyrel" or lst1[x] == "cy":
+            if lst1[x] == "manlises" or lst1[x] == "cyrel":
                 for x in range (0,len(lst1)+1):
                     if x == len(lst1):
                         fallback()
