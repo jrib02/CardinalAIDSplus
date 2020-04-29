@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoginWindow</class>
+ <widget class="QDialog" name="LoginWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>341</width>
+    <height>481</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cardinal Login</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>CardinalAIDSicon.jpg</normaloff>CardinalAIDSicon.jpg</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	background: red;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>341</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>341</width>
+      <height>481</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTabWidget{
+	/*font: 10pt &quot;Segoe UI&quot;;*/
+	background: rgb(255, 255, 255);
+}
+
+QTabWidget::pane { /* The tab widget frame */
+    border-top: 10px solid yellow;
+    position: absolute;
+}
+QTabWidget&gt;QWidget&gt;QWidget{background: white;}
+
+QTabBar::tab {
+	background-color: red;
+	font:10pt &quot;Segoe UI&quot; ; 
+}
+QTabWidget::tab-bar {
+    alignment: right;
+	border: 2px solid red;
+    border-bottom-color: yellow; /* same as the pane color */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    min-width: 10px;
+    padding: 10px;
+}
+QTabBar::tab:hover {
+    background: red;
+	font: black;
+}
+QTabBar::tab:selected {
+	background: yellow;
+	color: black;
+}
+QTabBar::tab:!selected {
+	background: red;
+	color: white;
+}</string>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
+    </property>
+    <property name="movable">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="loginTab">
+     <attribute name="title">
+      <string>STUDENT</string>
+     </attribute>
+     <widget class="QPushButton" name="loginBtn">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>370</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>LOGIN</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="logo">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>10</y>
+        <width>281</width>
+        <height>271</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="pixmap">
+       <pixmap>CardinalAIDS-full.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="userText">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>290</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Username</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="passText">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>330</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Password</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="incorrrectLbl">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>400</y>
+        <width>261</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background: white;
+	color: red;
+}</string>
+      </property>
+      <property name="text">
+       <string>Incorrect username or password.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="adminTab">
+     <attribute name="title">
+      <string>ADMIN</string>
+     </attribute>
+     <widget class="QPushButton" name="loginAdBtn">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>370</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>LOGIN</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="logoAdmin">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>10</y>
+        <width>281</width>
+        <height>271</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="pixmap">
+       <pixmap>CardinalAIDS-full.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="userAdText">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>290</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Admin Username</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="passAdText">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>330</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Admin Password</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="incorrrecAdmLbl">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>400</y>
+        <width>261</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background: white;
+	color: red;
+}</string>
+      </property>
+      <property name="text">
+       <string>Incorrect username or password.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="aboutTab">
+     <attribute name="title">
+      <string>ABOUT</string>
+     </attribute>
+     <widget class="QLabel" name="logo_3">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>80</y>
+        <width>161</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
+      </property>
+      <property name="pixmap">
+       <pixmap>CardinalAIDS-full.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="oldPW">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>280</y>
+        <width>221</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: black;
+	font: 8pt &quot;Segoe UI&quot;;
+	background:white;
+}</string>
+      </property>
+      <property name="text">
+       <string>CardinalAIDS+ is a student information
+chat bot designed for Mapúa.
+
+Project Collaborators:
+CPE-106L B1 Group09
+CPE-106L B2 Group04</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>userText</tabstop>
+  <tabstop>passText</tabstop>
+  <tabstop>loginBtn</tabstop>
+  <tabstop>userAdText</tabstop>
+  <tabstop>passAdText</tabstop>
+  <tabstop>loginAdBtn</tabstop>
+  <tabstop>tabWidget</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
