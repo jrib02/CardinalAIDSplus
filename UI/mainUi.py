@@ -8,7 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_MainWindow(object):
+class Ui_StdWindow(object):
     def setupUi(self, StdWindow):
         StdWindow.setObjectName("StdWindow")
         StdWindow.resize(540, 499)
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(StdWindow.sizePolicy().hasHeightForWidth())
         StdWindow.setSizePolicy(sizePolicy)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("CardinalAIDSicon.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../.designer/backup/CardinalAIDSicon.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         StdWindow.setWindowIcon(icon)
         StdWindow.setStyleSheet("QWidget {\n"
 "    background: red;\n"
@@ -799,9 +799,9 @@ class Ui_MainWindow(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    mainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(mainWindow)
-    mainWindow.show()
+    StdWindow = QtWidgets.QMainWindow()
+    ui = Ui_StdWindow()
+    ui.setupUi(StdWindow)
+    StdWindow.show()
     sys.exit(app.exec_())
 

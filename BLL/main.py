@@ -1,11 +1,9 @@
 import PyQt5
 import random
 from PyQt5 import QtWidgets, uic, QtCore, QtGui, QtSql
-from UI.login import Ui_LoginWindow
-from UI.student import Ui_StdWindow
-from UI.admin import Ui_AdminWindow
-from UI.mainUi import Ui_MainWindow
-from DAL.database import *
+from login import Ui_LoginWindow
+from student import Ui_StdWindow
+from admin import Ui_AdminWindow
 from bot import AIchat
 import sqlite3
 import ctypes
@@ -13,8 +11,14 @@ import ctypes
 myappid = u'mycompany.myproduct.subproduct.version'
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 
+conn = sqlite3.connect('CardinalAIDS.db')
+c = conn.cursor()
+
 class StudentWindow(QtWidgets.QMainWindow, Ui_StdWindow):
     checkMatch = QtCore.pyqtSignal()
+
+    conn = sqlite3.connect('CardinalAIDS.db')
+    c = conn.cursor()
 
     def __init__(self, parent=None):
         super(StudentWindow, self).__init__(parent)
