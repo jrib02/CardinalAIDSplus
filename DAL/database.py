@@ -92,6 +92,11 @@ class Database():
         self.c.execute("SELECT * FROM consultationsched WHERE number == ?",(number,))
         data = self.c.fetchall()
         return data
+    
+    def getContact(self, code):
+        self.c.execute("SELECT * FROM contactlist WHERE code == ?",(code,))
+        data = self.c.fetchall()
+        return data
 
     def getProfSched(self, prof):
         self.c.execute("SELECT * FROM profSched WHERE code == ?",(prof,))
