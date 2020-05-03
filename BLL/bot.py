@@ -1,13 +1,14 @@
 import sqlite3
 import random
+import sys
+sys.path.append("../CardinalAIDSplus")
+from DAL.database import Database
 
 class AIchat():
-    def __init__(self,user):
-        conn = sqlite3.connect('CardinalAIDS.db')
-        self.c = conn.cursor()
-        self.flag = "yes"  
-        self.c.execute("SELECT * FROM students WHERE username == ?",(user,))    
-        data = self.c.fetchall()
+    def __init__(self, username): 
+        self.db = Database()
+        self.flag = 'yes'
+        data = self.db.getStudentInfo(username)
         for entry in data:
             self.username = entry[0]
             self.password = entry[1]
@@ -39,36 +40,25 @@ class AIchat():
             if x == len(lst1):
                 return fallback()
             elif lst1[x] == "keb" or lst1[x] == "hana" or lst1[x] == "kebhana":
-                code = "keb"
+                self.code = "keb"
                 break
             elif lst1[x] == "refinitiv":
-                code = "refinitiv"
+                self.code = "refinitiv"
                 break
             elif lst1[x] == "maasd" or lst1[x] == "san" or lst1[x] == "diego" or lst1[x] == "sandiego" or lst1[x] == "alumni":
-                code = "maasd"
+                self.code = "maasd"
                 break
             elif lst1[x] == "ety" or lst1[x] == "et" or lst1[x] == "yuchengco":
-                code = "ety"
+                self.code = "ety"
                 break
             elif lst1[x] == "list" or lst1[x] == "available" or lst1[x] == "all":
-                self.c.execute("SELECT name FROM scholarships")
-                data = list(self.c.fetchall())
+                data = self.db.getScholarshipList()
                 return self.printScho(data)
             else:
                 x = x + 1
-    
-    def printScho(self, data):
-        all = 'List of all scholarships: ' 
-        count = len(data)
-        count = count - 1
-        while count >= 0:
-            all = all + '\n' + str(data[count]).translate(str.maketrans({',': '', '(': '- ', '[': '', ')': '', ']' : '', "'": ''}))
-            count = count - 1
-        return all
 
-        self.c.execute("SELECT * FROM scholarships WHERE code == ?",(code,))
-        data = self.c.fetchall()
         
+        data = self.db.getScholarship(self.code)
         for entry in data:
             code = entry[0]
             name = entry[1]
@@ -81,7 +71,16 @@ class AIchat():
         else:
             response = "The " + name + " is deadlined until " + deadline
         return response
-    
+
+    def printScho(self, data):
+        all = 'List of all scholarships: ' 
+        count = len(data)
+        count = count - 1
+        while count >= 0:
+            all = all + '\n' + str(data[count]).translate(str.maketrans({',': '', '(': '- ', '[': '', ')': '', ']' : '', "'": ''}))
+            count = count - 1
+        return all
+
     def schedEnroll(self, lst1):
         def fallback():
             fallbackOptions = ["You have either entered an invalid batch number or didn't specify one. Could you specify a valid batch number? ", 
@@ -109,16 +108,14 @@ class AIchat():
             else:
                 x = x + 1
                 
-        self.c.execute("SELECT * FROM enrollmentsched WHERE number == ?",(number,))
-        data = self.c.fetchall()
-        
+        data = self.db.getEnrollment(number)        
         for entry in data:
             number = entry[0]
             batch = entry[1]
             date = entry[2]
             time = entry[3]
-        response = "The schedule of enrollment for Batch " + str(batch) + " is on " + date + " from " + time + " for all programs."
         
+        response = "The schedule of enrollment for Batch " + str(batch) + " is on " + date + " from " + time + " for all programs."
         return response
     
     
@@ -150,10 +147,8 @@ class AIchat():
                 break
             else:
                 x = x + 1
-            
-        self.c.execute("SELECT * FROM consultationsched WHERE number == ?",(number,))
-        data = self.c.fetchall()    
-            
+        
+        data = self.db.getConsultation(number)
         for entry in data:
             number = entry[0]
             batch = entry[1]
@@ -161,7 +156,6 @@ class AIchat():
             time = entry[3]
         response = "The schedule of consultations for Batch " + str(batch) + " is on " + date + " from " + time + " for all programs."
         return response
-    
     
     def contact(self, lst1):
         def fallback():
@@ -265,16 +259,14 @@ class AIchat():
         for x in range (0,len(lst1)+1):
             if x == len(lst1):
                 return fallback()
-            if lst1[x] == "rafael" or lst1[x] == "maramba":
+            elif lst1[x] == "rafael" or lst1[x] == "maramba":
                 for x in range (0,len(lst1)+1):
                     if x == len(lst1):
-                        fallback()
-                        return
+                        return fallback()
                     elif lst1[x] == "logic" or lst1[x] == "circuits" or lst1[x] == "cpe107" or lst1[x] == "107" or lst1[x] == "logics":
                         for x in range (0,len(lst1)+1):
                             if x == len(lst1):
-                                fallback()
-                                return
+                                return fallback()
                             elif lst1[x] == "b1":
                                 code = "maramba_107_b1"
                                 break
@@ -287,13 +279,12 @@ class AIchat():
                     elif lst1[x] == "comorg" or lst1[x] == "organization" or lst1[x] == "architecture" or lst1[x] == "110" or lst1[x] == "cpe110":
                         for x in range (0,len(lst1)+1):
                             if x == len(lst1):
-                                fallback()
-                                return
+                                return fallback()
                             elif lst1[x] == "b1":
-                                code = "maramba_107_b1"
+                                code = "maramba_110_b1"
                                 break
-                            elif lst1[x] == "b1":
-                                code = "maramba_107_b2"
+                            elif lst1[x] == "b2":
+                                code = "maramba_110_b2"
                                 break
                             else:
                                 x = x + 1
@@ -301,23 +292,20 @@ class AIchat():
                     else:
                         x = x + 1
                 break
-            else:
-                x = x + 1
+
             
-            if lst1[x] == "padilla" or lst1[x] == "dionis" or lst1[x] == "pads":
+            elif lst1[x] == "padilla" or lst1[x] == "dionis":
                 for x in range (0,len(lst1)+1):
                     if x == len(lst1):
-                        fallback()
-                        return
-                    if lst1[x] == "software" or lst1[x] == "design" or lst1[x] == "softdes" or lst1[x] == "106" or lst1[x] == "cpe106":
+                        return fallback()
+                    elif lst1[x] == "software" or lst1[x] == "design" or lst1[x] == "softdes" or lst1[x] == "106" or lst1[x] == "cpe106":
                         for x in range (0,len(lst1)+1):
                             if x == len(lst1):
-                                fallback()
-                                return
-                            if lst1[x] == "b1":
+                                return fallback()
+                            elif lst1[x] == "b1":
                                 code = "padilla_106_b1"
                                 break
-                            if lst1[x] == "b1":
+                            elif lst1[x] == "b2":
                                 code = "padilla_106_b2"
                                 break
                             else:
@@ -326,23 +314,19 @@ class AIchat():
                     else:
                         x = x + 1
                 break
-            else:
-                x = x + 1
             
-            if lst1[x] == "manlises" or lst1[x] == "cyrel" or lst1[x] == "cy":
+            elif lst1[x] == "manlises" or lst1[x] == "cyrel":
                 for x in range (0,len(lst1)+1):
                     if x == len(lst1):
-                        fallback()
-                        return
-                    if lst1[x] == "microproccesor" or lst1[x] == "microprocessors" or lst1[x] == "micro" or lst1[x] == "108" or lst1[x] == "cpe108":
+                        return fallback()
+                    elif lst1[x] == "microproccesor" or lst1[x] == "microprocessors" or lst1[x] == "micro" or lst1[x] == "108" or lst1[x] == "cpe108":
                         for x in range (0,len(lst1)+1):
                             if x == len(lst1):
-                                fallback()
-                                return
-                            if lst1[x] == "b1":
+                                return fallback()
+                            elif lst1[x] == "b1":
                                 code = "manlises_108_b1"
                                 break
-                            if lst1[x] == "b1":
+                            elif lst1[x] == "b2":
                                 code = "manlises_108_b2"
                                 break
                             else:
@@ -351,12 +335,8 @@ class AIchat():
                     else:
                         x = x + 1
                 break
-            else:
-                x = x + 1
-                            
-        self.c.execute("SELECT * FROM profSched WHERE code == ?",(code,))
-        data = self.c.fetchall()
-        
+
+        data = self.db.getProfSched(code)        
         for entry in data:
             code = entry[0]
             profLast = entry[1]
@@ -403,9 +383,7 @@ class AIchat():
                 code = "ranking"
                 break
             
-        self.c.execute("SELECT * FROM news WHERE code == ?",(code,))
-        data = self.c.fetchall()
-        
+        data = self.db.getNews(code)        
         for entry in data:
             code = entry[0]
             headline = entry[1]
@@ -421,6 +399,11 @@ class AIchat():
         rngResponse = random.choice(askResponses)
         return rngResponse
 
+    def randomGreeting(self):
+        greetings = ["Hi, welcome to CardinalAIDS+!",
+                     "Hi, I hope you're doing well."]
+        greet = random.choice(greetings)        
+        return greet
     
     def getQues(self, question):
         while self.flag == "yes":
