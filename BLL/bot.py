@@ -235,9 +235,7 @@ class AIchat():
                 x = x + 1
 
     
-        self.c.execute("SELECT * FROM contactlist WHERE code == ?",(code,))
-        data = self.c.fetchall()
-        
+        data = self.db.getContact(code)        
         for entry in data:
             code = entry[0]
             department = entry[1]
