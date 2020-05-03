@@ -6,7 +6,7 @@ class TestCode(unittest.TestCase):
     fallbackOptions = ["Can you be more specific for me?",
                       "I don't quite understand on  what you ask about the email/contact number of your desired department.",
                       "Can you be more specific on your inquiry?"]
-    testMsg = "Contact and email of EECE deparment."
+    testMsg = "eece"
 
     self.assertIn(AIchat.contact(self,testMsg),fallbackOptions)
 if __name__=='__main__':
