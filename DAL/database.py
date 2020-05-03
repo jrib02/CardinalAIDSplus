@@ -1,6 +1,6 @@
 import sqlite3
 import sys
-sys.path.append("../CardinalAIDSplus")
+sys.path.append("../")
 
 class Database():
     def __init__(self):

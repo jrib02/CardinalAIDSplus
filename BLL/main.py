@@ -1,5 +1,5 @@
 import sys
-sys.path.append("../CardinalAIDSplus")
+sys.path.append("./")
 import random
 from PyQt5 import QtWidgets, QtCore, QtGui
 from UI.mainUi import Ui_MainWindow
