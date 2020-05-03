@@ -1,0 +1,1332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>540</width>
+    <height>499</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>CardinalAIDS+</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../.designer/backup/CardinalAIDSicon.jpg</normaloff>../.designer/backup/CardinalAIDSicon.jpg</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	background: red;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="cardinalTabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>541</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTabWidget::pane { /* The tab widget frame */
+    border-top: 10px solid yellow;
+    position: absolute;
+
+}
+QTabWidget&gt;QWidget&gt;QWidget{background: white;}
+QTabWidget{
+	/*font: 10pt &quot;Segoe UI&quot;;*/
+	background: rgb(247, 245, 246);
+}
+QTabBar::tab {
+	background-color: red;
+	padding: 8px;
+	font:10pt  white &quot;Segoe UI&quot;; 
+}
+QTabWidget::tab-bar {
+    alignment: right;
+	border: 2px solid red;
+    border-bottom-color: yellow; /* same as the pane color */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    min-width: 10px;
+	padding: 10px;
+}
+QTabBar::tab:hover {
+    background: red;
+	font: black;
+}
+QTabBar::tab:selected {
+	background: yellow;
+	color: black;
+}
+QTabBar::tab:!selected {
+	background: red;
+	color: white;
+}</string>
+    </property>
+    <property name="tabPosition">
+     <enum>QTabWidget::North</enum>
+    </property>
+    <property name="tabShape">
+     <enum>QTabWidget::Rounded</enum>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="elideMode">
+     <enum>Qt::ElideNone</enum>
+    </property>
+    <property name="movable">
+     <bool>false</bool>
+    </property>
+    <widget class="QWidget" name="chatTab">
+     <attribute name="title">
+      <string>CHAT</string>
+     </attribute>
+     <widget class="QPushButton" name="sendBtn">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>415</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>SEND</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="invalidBtn">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>415</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>INVALID</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>400</y>
+        <width>541</width>
+        <height>8</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">Line{background:yellow;}</string>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="questionText">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>415</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string>Enter question</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>541</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget{
+	background: white;
+	font: 14pt &quot;Segoe UI&quot;;
+	border: 0px;
+	text-align: right;
+}</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="historyTab">
+     <attribute name="title">
+      <string>HISTORY</string>
+     </attribute>
+     <widget class="QTableWidget" name="historyTable">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>501</width>
+        <height>431</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableView{
+	background: white;
+	font: 10pt &quot;Segoe UI&quot;;
+}
+QTableView::item{
+	selection-background-color: rgb(204,0,0);
+	color: black;
+}
+QHeaderView::section{
+	background-color: rgb(204,0,0);
+	color: white;
+	border: 0px;
+}
+QTableView QTableCornerButton::section {
+    background: rgb(204,0,0);
+    border: red;
+}</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>2</number>
+      </property>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <column/>
+      <column/>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="askedTab">
+     <attribute name="title">
+      <string>ASKED QUESTIONS</string>
+     </attribute>
+     <widget class="QTableWidget" name="askedTable">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>5</y>
+        <width>501</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableView{
+	background: white;
+	font: 10pt &quot;Segoe UI&quot;;
+}
+QTableView::item{
+	selection-background-color: rgb(204,0,0);
+	color: black;
+}
+QHeaderView::section{
+	background-color: rgb(204,0,0);
+	color: white;
+	border: 0px;
+}
+QTableView QTableCornerButton::section {
+    background: rgb(204,0,0);
+    border: red;
+}</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>3</number>
+      </property>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <column/>
+      <column/>
+      <column/>
+     </widget>
+     <widget class="QPushButton" name="deleteAskedBtn">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>410</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>DELETE</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="invalidTab">
+     <attribute name="title">
+      <string>INVALID ANSWERS</string>
+     </attribute>
+     <widget class="QTableWidget" name="invalidTable">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>5</y>
+        <width>501</width>
+        <height>401</height>
+       </rect>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTableView{
+	background: white;
+	font: 10pt &quot;Segoe UI&quot;;
+}
+QTableView::item{
+	selection-background-color: rgb(204,0,0);
+	color: black;
+}
+QHeaderView::section{
+	background-color: rgb(204,0,0);
+	color: white;
+	border: 0px;
+}
+QTableView QTableCornerButton::section {
+    background: rgb(204,0,0);
+    border: red;
+}</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
+      </property>
+      <property name="rowCount">
+       <number>0</number>
+      </property>
+      <property name="columnCount">
+       <number>3</number>
+      </property>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <column/>
+      <column/>
+      <column/>
+     </widget>
+     <widget class="QPushButton" name="deleteInvalidBtn">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>410</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>DELETE</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="updateTab">
+     <attribute name="title">
+      <string>UPDATE STUDENT INFO</string>
+     </attribute>
+     <widget class="QLineEdit" name="updatePassText">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>75</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="updateBtn">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>370</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>UPDATE</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="removeBtn">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>370</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>REMOVE</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="updateMIddleLbl">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>175</y>
+        <width>141</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background: white;
+	font: 14pt &quot;Segoe UI&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>MIDDLE INITIAL</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="updateMessage">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>330</y>
+        <width>461</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background: white;
+	color: red;
+}</string>
+      </property>
+      <property name="text">
+       <string>foo</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="updateFeeLbl">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>265</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: black;
+	font: 12pt &quot;Segoe UI&quot;;
+	background:white;
+}</string>
+      </property>
+      <property name="text">
+       <string>UNSETTLED
+FEES</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="updateLastLbl">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>225</y>
+        <width>141</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background: white;
+	font: 14pt &quot;Segoe UI&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>LAST NAME</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="updateFeesText">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>270</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="updateUserText">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>30</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="updateMiddleText">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>170</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="updateLastText">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>220</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="updateFirstLbl">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>125</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background: white;
+	font: 14pt &quot;Segoe UI&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>FIRST NAME</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="updatePassLbl">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>80</y>
+        <width>111</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background: white;
+	font: 14pt &quot;Segoe UI&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>PASSWORD</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addBtn">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>370</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>ADD</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="updateUserLbl">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>35</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background: white;
+	font: 14pt &quot;Segoe UI&quot;;
+}</string>
+      </property>
+      <property name="text">
+       <string>USERNAME</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="updateFirstText">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>120</y>
+        <width>311</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+      <property name="placeholderText">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="accTab">
+     <attribute name="title">
+      <string>ACCOUNT</string>
+     </attribute>
+     <widget class="QPushButton" name="logoutBtn">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>350</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>LOGOUT</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="oldPW">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>60</y>
+        <width>161</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: black;
+	font: 12pt &quot;Segoe UI&quot;;
+	background:white;
+}</string>
+      </property>
+      <property name="text">
+       <string>CURRENT PASSWORD</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="newPW">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>120</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: black;
+	font: 12pt &quot;Segoe UI&quot;;
+	background:white;
+}</string>
+      </property>
+      <property name="text">
+       <string>NEW PASSWORD</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="confirmPW">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>170</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	color: black;
+	font: 12pt &quot;Segoe UI&quot;;
+	background:white;
+}</string>
+      </property>
+      <property name="text">
+       <string>CONFIRM NEW
+PASSWORD</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="changePW">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>230</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:hover {
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}
+QPushButton:pressed {
+	color: red;
+	font: Bold 10pt &quot;Segoe UI&quot;;
+    border: 1px solid red;
+    border-radius: 15px;
+    background-color: white;
+    min-width: 80px;
+}
+QPushButton::focus{
+	color: white;
+	font: 10pt &quot;Segoe UI&quot;;
+    text-decoration: underline;
+    border: 1px solid white;
+    border-radius: 15px;
+    background-color: red;
+    min-width: 80px;
+}</string>
+      </property>
+      <property name="text">
+       <string>CHANGE PASSWORD</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="oldPWText">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>55</y>
+        <width>301</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="newPWText">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>115</y>
+        <width>301</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="confirmPWText">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>170</y>
+        <width>301</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit
+{
+	border-radius: 15px;
+	border: 1px solid black;
+	font: 10pt &quot;Segoe UI&quot;;
+	background-color: white;
+}</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="matchPassword">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>150</y>
+        <width>261</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background: white;
+	color: red;
+}</string>
+      </property>
+      <property name="text">
+       <string>Passwords do not match.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="incorrectChange">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>260</y>
+        <width>261</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	background: white;
+	color: red;
+}</string>
+      </property>
+      <property name="text">
+       <string>Current password incorrect.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>questionText</tabstop>
+  <tabstop>sendBtn</tabstop>
+  <tabstop>invalidBtn</tabstop>
+  <tabstop>listWidget</tabstop>
+  <tabstop>cardinalTabWidget</tabstop>
+  <tabstop>historyTable</tabstop>
+  <tabstop>askedTable</tabstop>
+  <tabstop>deleteAskedBtn</tabstop>
+  <tabstop>invalidTable</tabstop>
+  <tabstop>deleteInvalidBtn</tabstop>
+  <tabstop>updateUserText</tabstop>
+  <tabstop>updatePassText</tabstop>
+  <tabstop>updateFirstText</tabstop>
+  <tabstop>updateMiddleText</tabstop>
+  <tabstop>updateLastText</tabstop>
+  <tabstop>updateFeesText</tabstop>
+  <tabstop>addBtn</tabstop>
+  <tabstop>removeBtn</tabstop>
+  <tabstop>updateBtn</tabstop>
+  <tabstop>oldPWText</tabstop>
+  <tabstop>newPWText</tabstop>
+  <tabstop>confirmPWText</tabstop>
+  <tabstop>changePW</tabstop>
+  <tabstop>logoutBtn</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

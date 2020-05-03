@@ -13,7 +13,7 @@ class Ui_LoginWindow(object):
         LoginWindow.setObjectName("LoginWindow")
         LoginWindow.resize(341, 481)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("CardinalAIDSicon.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("CardinalAIDS-icofile.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         LoginWindow.setWindowIcon(icon)
         LoginWindow.setStyleSheet("QWidget {\n"
 "    background: red;\n"
