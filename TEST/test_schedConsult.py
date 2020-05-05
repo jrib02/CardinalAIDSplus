@@ -7,8 +7,9 @@ class TestCode(unittest.TestCase):
       "I don't think you've entered a valid batch number. Can you re-enter that?", 
       "Please enter a valid batch number."]
 
-    testMessage = "What is the schedule of consultations and advising?"
-    self.assertIn(AIchat.schedConsult(self,testMessage),fallbackOptions)
+    testMessage = "What is schedule of consultation and advising "
+    arrMessage = AIchat.convert(self, testMessage)
+    self.assertIn(AIchat.schedConsult(self, arrMessage),fallbackOptions)
 
 if __name__=='__main__':
   unittest.main(exit=False)

@@ -8,7 +8,8 @@ class TestCode(unittest.TestCase):
       "Please enter a valid batch number."]
 
     testMessage = "What is the schedule of enrollment"
-    self.assertIn(AIchat.schedEnroll(self,testMessage),fallbackOptions)
+    arrMessage = AIchat.convert(self, testMessage)
+    self.assertIn(AIchat.schedEnroll(self,arrMessage),fallbackOptions)
 
 if __name__=='__main__':
   unittest.main(exit=False)
