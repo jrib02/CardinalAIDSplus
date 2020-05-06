@@ -30,5 +30,5 @@ If the package is missing, follow this installation guide for [Linux, Windows, a
 Clone or download the GitHub repository [here](https://github.com/jrib02/CardinalAIDSplus.git). The top level folder should be _**CardinalAIDSplus**_ (repository name) and subfolders _**BLL, DAL, UI and TEST**_ should be found within.
 In a Python terminal, possibly within an IDE, navigate to the repository or _**CardinalAIDSplus**_ folder and enter the command:
 
-    python BLL\main.py
+    python main.py
 If no errors are met, the CardinalAIDS+ Login Window should appear and the program will begin its process.
