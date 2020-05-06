@@ -7,10 +7,6 @@ from UI.login import Ui_LoginWindow
 from DAL.database import Database
 from BLL.bot import AIchat
 
-import ctypes                                                           # allows for the taskbar icon image to appear
-myappid = u'mycompany.myproduct.subproduct.version'                     # known problem with pyqt and windows;
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)  # should be ignored in linux systems
-
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, username='', user='', parent=None):
         super(MainWindow, self).__init__(parent)
@@ -381,6 +377,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     # resets tabs, tables within and messages
     def cleanUp(self):
         self.resetTabs()
+        self.listWidget.clear()
         self.cardinalTabWidget.setCurrentIndex(0)
         self.historyTable.clearContents()
         self.historyTable.setRowCount(0)
