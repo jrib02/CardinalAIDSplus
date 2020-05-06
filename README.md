@@ -3,7 +3,7 @@
 # CardinalAIDS+
 A student information system chatbot developed by Mapúa University Computer Engineering students for fellow Mapúans.
 
-Link of the project documentation: https://bit.ly/3b47jz3
+Link of the project documentation: https://bit.ly/3bcM9Pj
 
 ## Important Prerequisites for Execution
 ### Python 3.7+
