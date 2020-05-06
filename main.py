@@ -1,4 +1,4 @@
-from BLL.main import * 
+from BLL.app import * 
 
 def main(): # function of main program
     try:
