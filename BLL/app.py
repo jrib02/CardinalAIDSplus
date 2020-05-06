@@ -1,14 +1,15 @@
 import sys
+sys.path.append("./")
 import random
 from PyQt5 import QtWidgets, QtCore, QtGui
 from UI.mainUi import Ui_MainWindow
 from UI.login import Ui_LoginWindow
 from DAL.database import Database
-from bot import AIchat
+from BLL.bot import AIchat
 
 import ctypes                                                           # allows for the taskbar icon image to appear
 myappid = u'mycompany.myproduct.subproduct.version'                     # known problem with pyqt and windows;
-ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)  # will be ignored in linux systems
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)  # should be ignored in linux systems
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, username='', user='', parent=None):
@@ -501,15 +502,5 @@ class LoginWindow(QtWidgets.QDialog, Ui_LoginWindow):
             self.userAdText.clear()
             self.passAdText.clear()
             self.incorrrecAdmLbl.setVisible(True)
-
-def main(): # function of main program
-    try:
-        app = QtWidgets.QApplication(sys.argv)
-        mainWindow = MainWindow() # initializes main window but login will show first
-        sys.exit(app.exec_())
-    finally:
-        db = Database()    # terminates database by instantiating and closing manually
-        db.closeDatabase()
-
-if __name__ == '__main__':
-    main()
+           
+        
